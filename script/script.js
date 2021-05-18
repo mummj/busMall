@@ -1,8 +1,8 @@
-// console.log('hello world')
+'use strict'
 
-let img1 = document.getElementById('img1');
-let img2 = document.getElementById('img2');
-let img3 = document.getElementById('img3');
+let img1 = document.getElementById('img1container');
+let img2 = document.getElementById('img2container');
+let img3 = document.getElementById('img3container');
 
 img1.addEventListener('click', runFunctionImage1);
 
@@ -56,5 +56,11 @@ function clickfunction(){
 
 //display 3 images from array on startup
 fuction renderImages(){
+for (let i=0; i < 3; i++){
+let imgcontainer = document.getElementById('img' + i + 'container');
+let img = document.createElement("img");
+img.setAttribute('src', productArray[i].imgURL);
+img.appendChild('img' + i + 'container');
     
+} 
 }
