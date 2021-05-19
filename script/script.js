@@ -1,22 +1,22 @@
 'use strict'
 
-let img1 = document.getElementById('img1container');
-let img2 = document.getElementById('img2container');
-let img3 = document.getElementById('img3container');
+// let img1 = document.getElementById('img1container');
+// let img2 = document.getElementById('img2container');
+// let img3 = document.getElementById('img3container');
 
-img1.addEventListener('click', runFunctionImage1);
+// img1.addEventListener('click', runFunctionImage1);
 
-img2.addEventListener('click', function(){
-    console.log("I am image 2")
-});
+// img2.addEventListener('click', function(){
+//     console.log("I am image 2")
+// });
 
-img3.addEventListener('click', function(){
-    console.log("I am image 3");
-})
+// img3.addEventListener('click', function(){
+//     console.log("I am image 3");
+// })
 
-function runFunctionImage1(){
-    console.log('I am image 1');
-}
+// function runFunctionImage1(){
+//     console.log('I am image 1');
+// }
 
 //need an array for all of the images that contains the following
 //1. path to image
@@ -50,17 +50,32 @@ let productArray = [
 
 //consolidate all the respons function (callbacks) into one function
 
-function clickfunction(){
-    
+function clickfunction(event){
+    clicks = clicks + 1
+    console.log('I was clicked and my id is:', event.target.id);
+    let parentID = event.target.id;
 }
 
 //display 3 images from array on startup
 fuction renderImages(){
 for (let i=0; i < 3; i++){
-let imgcontainer = document.getElementById('img' + i + 'container');
-let img = document.createElement("img");
+let imgcontainer = document.getElementById(`img${i}container`);
+let img = document.createElement('img');
+imgcontainer.appendChild('img');
 img.setAttribute('src', productArray[i].imgURL);
-img.appendChild('img' + i + 'container');
-    
+img.setAttribute('id', productArray[i].HTMLid);
 } 
+renderImages();
 }
+
+
+(function startApp{
+//Add Event listeners on the container
+for (let i=0; i < 3; i++){
+    let imgcontainer = document.getElementById(`img${i}container`);
+    imgcontainer.addEventListener('click', clickfunction);
+}
+
+
+    renderImages();
+})();
