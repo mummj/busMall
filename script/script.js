@@ -54,22 +54,31 @@ function clickfunction(event){
     clicks = clicks + 1
     console.log('I was clicked and my id is:', event.target.id);
     let parentID = event.target.id;
+
+    for(let i=0; i < productArray.length; i++){
+    if(parentID === productArray[i].htmlID){
+        console.log('total votes ', productArray[i].totalVotes);
+    }
+
 }
 
 //display 3 images from array on startup
-fuction renderImages(){
+function renderImages() {
 for (let i=0; i < 3; i++){
 let imgcontainer = document.getElementById(`img${i}container`);
-let img = document.createElement('img');
-imgcontainer.appendChild('img');
+let img = document.createElement(img);
+imgcontainer.appendChild(img);
 img.setAttribute('src', productArray[i].imgURL);
-img.setAttribute('id', productArray[i].HTMLid);
-} 
-renderImages();
-}
+img.setAttribute('id', productArray[i].htmlID);
+img.setAttribute('class', 'item');
 
+//add one to total views
 
-(function startApp{
+porductArray[i].totalViews++;
+console.log('total views:', productArray[i].htmlID, productArray[i].totalViews);
+}}
+
+(function startApp(){
 //Add Event listeners on the container
 for (let i=0; i < 3; i++){
     let imgcontainer = document.getElementById(`img${i}container`);
@@ -79,3 +88,4 @@ for (let i=0; i < 3; i++){
 
     renderImages();
 })();
+}
